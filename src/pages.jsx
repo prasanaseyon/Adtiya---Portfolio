@@ -84,7 +84,7 @@ export function Home() {
 export function About() {
   return (
     <Page>
-      <PageHead eyebrow="About" title="Who I am" />
+      <PageHead eyebrow="About" title="" />
 
       <div className="about-grid">
         <div className="about-copy">
