@@ -40,8 +40,15 @@ export function Home() {
           <EmailButton email={PROFILE.email} />
         </div>
       </section>
-
       <section className="section">
+        <SectionTitle>Awards & Recognitions</SectionTitle>
+        <ul className="award-list">
+          {honours.map((a) => <AwardRow key={a.title} item={a} />)}
+        </ul>
+        <Link className="more" to="/awards">Every award <ArrowIcon /></Link>
+      </section>
+      
+       <section className="section">
         <SectionTitle note="Mentored & independent">Current research</SectionTitle>
         <div className="grid grid-2">
           {research.map((e) => <ExperienceCard key={e.slug} item={e} compact />)}
@@ -49,13 +56,7 @@ export function Home() {
         <Link className="more" to="/work">All research and experience <ArrowIcon /></Link>
       </section>
 
-      <section className="section">
-        <SectionTitle>Selected recognition</SectionTitle>
-        <ul className="award-list">
-          {honours.map((a) => <AwardRow key={a.title} item={a} />)}
-        </ul>
-        <Link className="more" to="/awards">Every award <ArrowIcon /></Link>
-      </section>
+    
 
       <section className="section">
         <SectionTitle note="Xponentia and beyond">Reach</SectionTitle>
