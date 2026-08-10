@@ -11,7 +11,7 @@ export const PROFILE = {
   first: "Aditya",
   last: "Patil",
   fullName: "Aditya Patil",
-  tagline: "Number Theory & Cryptography Researcher • Founder, Xponentia",
+  tagline: "Founder, Xponentia | Number Theory & Cryptography Researcher",
   location: "Bangalore, Karnataka, India",
   email: "arp876726@gmail.com",
   phone: "+91 74986 51812",
