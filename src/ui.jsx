@@ -101,6 +101,36 @@ export function Logo({ src, name = "" }) {
   return <img className="logo" src={src} alt="" onError={() => setFailed(true)} />;
 }
 
+/* A mailto link is silently dead on any machine with no mail client
+   registered, so this also copies the address on click and says so.
+   Whichever mechanism the visitor's setup supports, they get the address. */
+export function EmailButton({ email, className = "btn btn-ghost", label = "Email" }) {
+  const [copied, setCopied] = useState(false);
+  if (!email) return null;
+
+  const handleClick = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2400);
+    } catch {
+      /* Clipboard blocked (non-HTTPS or denied permission).
+         The mailto still fires for anyone with a mail client. */
+    }
+  };
+
+  return (
+    <a
+      className={className}
+      href={`mailto:${email}`}
+      title={email}
+      onClick={handleClick}
+    >
+      <MailIcon /> {copied ? `Copied ${email}` : label}
+    </a>
+  );
+}
+
 export function Eyebrow({ children }) {
   return <p className="eyebrow">{children}</p>;
 }
