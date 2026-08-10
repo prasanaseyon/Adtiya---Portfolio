@@ -9,7 +9,7 @@ import {
 } from "./data";
 import {
   Page, PageHead, Eyebrow, SectionTitle, Tags, OutLink, Logo,
-  ArrowIcon, DownloadIcon, MailIcon, ExternalIcon,
+  ArrowIcon, DownloadIcon, EmailButton, ExternalIcon,
 } from "./ui";
 
 /* ============================ Home ============================ */
@@ -21,7 +21,7 @@ export function Home() {
   return (
     <Page>
       <section className="hero">
-        
+        <span className="hero-mark" aria-hidden="true">N(α) = a² + b² + c² + d²</span>
 
         <Eyebrow>{PROFILE.location}</Eyebrow>
         <h1 className="hero-name">
@@ -37,20 +37,8 @@ export function Home() {
           <a className="btn btn-ghost" href={PROFILE.cv} download>
             <DownloadIcon /> Download CV
           </a>
-          {PROFILE.email && (
-            <a className="btn btn-ghost" href={`mailto:${PROFILE.email}`}>
-              <MailIcon /> Email
-            </a>
-          )}
+          <EmailButton email={PROFILE.email} />
         </div>
-      </section>
-
-      <section className="section">
-        <SectionTitle>Awards and Recognitions</SectionTitle>
-        <ul className="award-list">
-          {honours.map((a) => <AwardRow key={a.title} item={a} />)}
-        </ul>
-        <Link className="more" to="/awards">Every award <ArrowIcon /></Link>
       </section>
 
       <section className="section">
@@ -61,7 +49,13 @@ export function Home() {
         <Link className="more" to="/work">All research and experience <ArrowIcon /></Link>
       </section>
 
-      
+      <section className="section">
+        <SectionTitle>Selected recognition</SectionTitle>
+        <ul className="award-list">
+          {honours.map((a) => <AwardRow key={a.title} item={a} />)}
+        </ul>
+        <Link className="more" to="/awards">Every award <ArrowIcon /></Link>
+      </section>
 
       <section className="section">
         <SectionTitle note="Xponentia and beyond">Reach</SectionTitle>
@@ -84,16 +78,14 @@ export function Home() {
 export function About() {
   return (
     <Page>
-      <PageHead eyebrow="About" title="" />
+      <PageHead eyebrow="About" title="Who I am" />
 
       <div className="about-grid">
         <div className="about-copy">
           {PROFILE.bio.map((p, i) => <p key={i}>{p}</p>)}
 
           <div className="about-contact">
-            {PROFILE.email && (
-              <a href={`mailto:${PROFILE.email}`}><MailIcon size={13} /> {PROFILE.email}</a>
-            )}
+            <EmailButton email={PROFILE.email} className="" label={PROFILE.email} />
             {PROFILE.socials.linkedin && (
               <a href={PROFILE.socials.linkedin} target="_blank" rel="noopener noreferrer">
                 LinkedIn <ExternalIcon size={12} />
