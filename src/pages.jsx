@@ -21,7 +21,7 @@ export function Home() {
   return (
     <Page>
       <section className="hero">
-        <span className="hero-mark" aria-hidden="true">N(α) = a² + b² + c² + d²</span>
+       
 
         <Eyebrow>{PROFILE.location}</Eyebrow>
         <h1 className="hero-name">
