@@ -27,7 +27,7 @@ export const PROFILE = {
     doi: "https://doi.org/10.51244/IJRSI.2025.120800409",
     twitter: ""
   },
-  cv: "",
+  cv: "/cv.pdf",
   photo: "",
   aboutPhoto: ""
 };
