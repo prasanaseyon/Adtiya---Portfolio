@@ -6,8 +6,9 @@
    ================================================================== */
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+// layout.jsx, line 10
 import {
-  PROFILE, NAV, FOOTER_NAV, FOOTER_PROFILES, FOOTER_BADGES,
+  PROFILE, NAV, FOOTER_NAV, FOOTER_PROFILES,
 } from "./data";
 import { Chevron, DownloadIcon, ExternalIcon } from "./ui";
 
@@ -150,9 +151,7 @@ export function Footer() {
 
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} {PROFILE.fullName}. Built with React &amp; <span className="heart">♥</span></p>
-        <div className="footer-badges">
-          {FOOTER_BADGES.map((b) => <span key={b}>{b}</span>)}
-        </div>
+        
       </div>
     </footer>
   );
