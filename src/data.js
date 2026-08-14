@@ -38,12 +38,14 @@ export const NAV = [
   {
     label: "Experience",
     children: [
-      { label: "Research", to: "/work" },
-      { label: "Projects", to: "/projects" },
+      { label: "Research", to: "/work?tab=research" },
+      { label: "Fellowships & Programmes", to: "/work?tab=fellowships" },
+      { label: "Applied & Industry", to: "/work?tab=applied" },
+      { label: "Projects", to: "/work?tab=projects" },
+      { label: "Leadership & Initiatives", to: "/work?tab=leadership" },
       { label: "Publications", to: "/publications" }
     ]
   },
-  { label: "Skills", to: "/skills" },
   { label: "Achievements", to: "/awards" },
   { label: "Leadership & Community", to: "/volunteering" }
 ];
@@ -70,11 +72,49 @@ export const EDUCATION = [
   }
 ];
 
-/* ---- Research & professional experience (renders as "Work Experience" cards) ---- */
+/* ---- Experience tabs ----
+   `id` is what goes in the URL: /work?tab=research
+   Order here is the order the tabs render in. */
+
+export const EXPERIENCE_TABS = [
+  {
+    id: "research",
+    label: "Research",
+    note: "Mentored & independent",
+    lead: "Number theory and cryptography, supervised at the University of Toronto and the Indian Statistical Institute."
+  },
+  {
+    id: "fellowships",
+    label: "Fellowships & Programmes",
+    note: "Selective admission",
+    lead: "Funded places on programmes that take a small fraction of applicants."
+  },
+  {
+    id: "applied",
+    label: "Applied & Industry",
+    note: "Outside pure maths",
+    lead: "Applied science with the New York Academy of Sciences, and quantitative finance in industry."
+  },
+  {
+    id: "projects",
+    label: "Projects",
+    note: "Built to be used",
+    lead: "Hardware, software and models that left the notebook."
+  },
+  {
+    id: "leadership",
+    label: "Leadership & Initiatives",
+    note: "Teaching & outreach",
+    lead: "Opening advanced STEM research to students who would not otherwise reach it."
+  }
+];
+
+/* ---- Research & professional experience ---- */
 
 export const EXPERIENCE = [
   {
     slug: "utoronto-number-theory-cryptography",
+    category: "research",
     role: "Research Student (Mentored Research)",
     org: "University of Toronto, Department of Mathematics",
     logo: "/logos/utoronto.png",
@@ -100,6 +140,7 @@ export const EXPERIENCE = [
   },
   {
     slug: "isi-hurwitz-quaternions",
+    category: "research",
     role: "Research Student (Mentored Research)",
     org: "Indian Statistical Institute, Bangalore",
     logo: "/logos/isi.png",
@@ -117,10 +158,12 @@ export const EXPERIENCE = [
     ],
     tags: ["Quaternions", "Additive Number Theory", "Goldbach Conjecture"],
     link: "",
+    paper: "",
     featured: true
   },
   {
     slug: "promys-india",
+    category: "fellowships",
     role: "Mehta Fellow",
     org: "PROMYS India, Indian Institute of Science, Bangalore",
     logo: "/logos/promys.png",
@@ -138,10 +181,35 @@ export const EXPERIENCE = [
     ],
     tags: ["Number Theory", "Galois Theory", "Fellowship"],
     link: "",
+    paper: "",
+    featured: false
+  },
+  {
+    slug: "yale-young-global-scholars",
+    category: "fellowships",
+    role: "Scholar, Innovation in Science & Technology (Cohort 3)",
+    org: "Yale Young Global Scholars, Yale University",
+    logo: "/logos/yale.png",
+    location: "New Haven, USA · On-campus",
+    dates: "Jul 2026",
+    meta: "Jul 2026 · 2 weeks · On-campus ·",
+    badge: "Full-Ride Scholar",
+    mentor: "",
+    desc:
+      "Two-week residential programme at Yale University on the Innovation, Science and Technology track.",
+    bullets: [
+      "Took seminars and classes in mathematics and medical sciences",
+      "Received a full-ride scholarship to attend the programme",
+      "Completed a capstone project on the impact of AI on cognitive ability"
+    ],
+    tags: ["Science & Technology", "Capstone Research"],
+    link: "",
+    paper: "",
     featured: false
   },
   {
     slug: "nyjas-junior-academy",
+    category: "applied",
     role: "Researcher, The Junior Academy",
     org: "New York Academy of Sciences",
     logo: "/logos/nyas.png",
@@ -160,31 +228,12 @@ export const EXPERIENCE = [
     tags: ["Renewable Energy", "Hardware", "Applied Research"],
     link:
       "https://drive.google.com/file/d/1o4sifzjBZ28RP_fcQ1tIHJ166_ywMHGT/view?usp=sharing",
-    featured: false
-  },
-  {
-    slug: "yale-young-global-scholars",
-    role: "Scholar, Innovation in Science & Technology (Cohort 3)",
-    org: "Yale Young Global Scholars, Yale University",
-    logo: "/logos/yale.png",
-    location: "New Haven, USA · On-campus",
-    dates: "Jul 2026",
-    meta: "Jul 2026 · 2 weeks · On-campus ·",
-    badge: "Full-Ride Scholar",
-    mentor: "",
-    desc:
-      "Two-week residential programme at Yale University on the Innovation, Science and Technology track.",
-    bullets: [
-      "Took seminars and classes in mathematics and medical sciences",
-      "Received a full-ride scholarship to attend the programme",
-      "Completed a capstone project on the impact of AI on cognitive ability"
-    ],
-    tags: ["Science & Technology", "Capstone Research"],
-    link: "",
+    paper: "",
     featured: false
   },
   {
     slug: "motilal-oswal-internship",
+    category: "applied",
     role: "Investment Analyst Intern",
     org: "Motilal Oswal Financial Services",
     logo: "/logos/motilal-oswal.png",
@@ -201,6 +250,7 @@ export const EXPERIENCE = [
     ],
     tags: ["Quantitative Finance", "Valuation Modelling"],
     link: "",
+    paper: "",
     featured: false
   }
 ];
@@ -209,9 +259,13 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
+    slug: "solar-smart",
+    category: "projects",
     name: "SOLAR-SMART",
     org: "New York Academy of Sciences · Team of 6",
     meta: "Aug 2023 – Present",
+    dates: "Aug 2023 – Present",
+    badge: "Top 11 internationally",
     desc:
       "A low-cost smart add-on that automatically manages a home's solar power, protects the battery, and warns the owner when panels get dusty. Recovers 20–30% more usable solar energy. Facilitated the transition to renewable energy for 30+ households through community awareness, installation support, and subsidy navigation. Received Projects of Distinction at the NYJAS Energy Infrastructure Challenge (Top 11).",
     tags: ["Renewable Energy", "Embedded Hardware", "Community Impact"],
@@ -220,9 +274,13 @@ export const PROJECTS = [
     featured: true
   },
   {
+    slug: "breathnext",
+    category: "projects",
     name: "BreathNext",
     org: "GIIS Whitefield · Team Lead, 4-member team",
     meta: "Oct 2025 – Present",
+    dates: "Oct 2025 – Present",
+    badge: "In research phase",
     desc:
       "A portable passive bio-panel to mitigate wall dampness and indoor pollutants, paired with an AI-powered respiratory care app. The synthetic biology device detects air pollutants and eliminates them. Currently in the data collection and research phase in collaboration with ASHA community members. Won the GIIS Young Scientist Challenge and was selected for the S.T. Yau High School Science Award, Asia Round 1 (Biology category).",
     tags: ["Synthetic Biology", "AI", "Public Health"],
@@ -231,9 +289,13 @@ export const PROJECTS = [
     featured: true
   },
   {
+    slug: "pe-valuation-model",
+    category: "projects",
     name: "Private Equity Valuation Model",
     org: "Motilal Oswal Financial Services",
     meta: "Apr 2024 – May 2024",
+    dates: "Apr 2024 – May 2024",
+    badge: "",
     desc:
       "A mathematical valuation model for private equity investments, officially adopted by the team for live deal screening, alongside 3-way financial statement, leveraged buyout (LBO), and waterfall distribution models.",
     tags: ["Financial Modelling", "LBO", "Quantitative Analysis"],
@@ -282,7 +344,10 @@ export const ARTICLES = [
   }
 ];
 
-/* ---- Leadership, community service & school activities ---- */
+/* ---- Leadership, community service & school activities ----
+   `category: null` means the entry still renders on /volunteering but is
+   not repeated in the Experience tabs (BreathNext and SOLAR-SMART live
+   under Projects). */
 
 export const VOLUNTEER = {
   stats: [
@@ -292,34 +357,65 @@ export const VOLUNTEER = {
   ],
   orgs: [
     {
+      slug: "xponentia",
+      category: "leadership",
+      spotlight: true,
       name: "Xponentia",
-      role: "Founder · Dec 2024 – Present",
+      role: "Founder",
+      dates: "Dec 2024 – Present",
+      badge: "Flagship initiative",
+      tags: ["Non-profit", "STEM Access", "Mentorship"],
       desc:
-        "A non-profit initiative democratising access to high-level STEM research and mentorship for high school students. Led educational outreach impacting 1,000+ students across 20+ schools by providing the foundational resources needed for independent scientific inquiry, and manages a 7,000-member Telegram community that began as an Olympiad help channel and now covers both mathematics and wider STEM."
+        "A non-profit initiative democratising access to high-level STEM research and mentorship for high school students. Led educational outreach impacting 1,000+ students across 20+ schools by providing the foundational resources needed for independent scientific inquiry, and manages a 7,000-member Telegram community that began as an Olympiad help channel and now covers both mathematics and wider STEM.",
+      link: ""
     },
     {
-      name: "BreathNext",
-      role: "Team Lead · Oct 2025 – Present",
-      desc:
-        "Leads a 4-member school team building a portable passive bio-panel and AI-powered respiratory care app, currently in data collection and research in collaboration with ASHA community members. Won the GIIS Young Scientist Challenge."
-    },
-    {
-      name: "SOLAR-SMART",
-      role: "Project Lead · Aug 2023 – Present",
-      desc:
-        "Leads a team of 6 students building a low-cost smart solar add-on, and facilitated the transition to renewable energy for 30+ households through community awareness initiatives, installation support, and direct assistance with subsidy navigation."
-    },
-    {
-      name: "SEVA, Pledge a Smile Foundation",
-      role: "Project Lead / Fundraiser / Social Media Manager · Dec 2023 – Present",
-      desc:
-        "Promoted from core volunteer to Social Media & Fundraising Intern. Raised $2,500 USD through targeted digital marketing campaigns and ran 3 on-the-ground food drives for vulnerable communities, alongside posters, stickers, reels, ads and fundraising campaigns on social media."
-    },
-    {
+      slug: "alpha-pi-rates",
+      category: "leadership",
       name: "Alpha Pi-rates Math Club",
-      role: "Founder & President · Jan 2023 – Present",
+      role: "Founder & President",
+      dates: "Jan 2023 – Present",
+      badge: "",
+      tags: ["Teaching", "Competition Maths", "Community"],
       desc:
-        "Founded the first mathematics club at Podar International School, Chalisgaon, building a community of 22 students and teachers. Guides peers in proof techniques and problem solving, and takes the club to competitions including the Stanford Math Tournament and Purple Comet! Math Meet."
+        "Founded the first mathematics club at Podar International School, Chalisgaon, building a community of 22 students and teachers. Guides peers in proof techniques and problem solving, and takes the club to competitions including the Stanford Math Tournament and Purple Comet! Math Meet.",
+      link: ""
+    },
+    {
+      slug: "seva-pledge-a-smile",
+      category: "leadership",
+      name: "SEVA, Pledge a Smile Foundation",
+      role: "Project Lead / Fundraiser / Social Media Manager",
+      dates: "Dec 2023 – Present",
+      badge: "",
+      tags: ["Fundraising", "Digital Campaigns", "Community Service"],
+      desc:
+        "Promoted from core volunteer to Social Media & Fundraising Intern. Raised $2,500 USD through targeted digital marketing campaigns and ran 3 on-the-ground food drives for vulnerable communities, alongside posters, stickers, reels, ads and fundraising campaigns on social media.",
+      link: ""
+    },
+    {
+      slug: "breathnext-team",
+      category: null,
+      name: "BreathNext",
+      role: "Team Lead",
+      dates: "Oct 2025 – Present",
+      badge: "",
+      tags: [],
+      desc:
+        "Leads a 4-member school team building a portable passive bio-panel and AI-powered respiratory care app, currently in data collection and research in collaboration with ASHA community members. Won the GIIS Young Scientist Challenge.",
+      link: ""
+    },
+    {
+      slug: "solar-smart-team",
+      category: null,
+      name: "SOLAR-SMART",
+      role: "Project Lead",
+      dates: "Aug 2023 – Present",
+      badge: "",
+      tags: [],
+      desc:
+        "Leads a team of 6 students building a low-cost smart solar add-on, and facilitated the transition to renewable energy for 30+ households through community awareness initiatives, installation support, and direct assistance with subsidy navigation.",
+      link: ""
     }
   ]
 };
@@ -403,8 +499,7 @@ export const AWARDS = [
     icon: "🥇",
     title: "First Place India, Purple Comet! Math Meet",
     meta: "Small High School Category",
-    detail:
-      "Scored 30/30, representing GIIS Whitefield.",
+    detail: "Scored 30/30, representing GIIS Whitefield.",
     link: "",
     featured: true
   },
@@ -499,8 +594,7 @@ export const AWARDS = [
     icon: "🏵️",
     title: "Academic Excellence Award",
     meta: "Grade 10",
-    detail:
-      "Topped the Grade 10 board examinations with a 96.2% overall score.",
+    detail: "Topped the Grade 10 board examinations with a 96.2% overall score.",
     link: "",
     featured: false
   },
@@ -524,7 +618,27 @@ export const AWARDS = [
   }
 ];
 
-/* ---- Skills ---- */
+/* ---- Skills ----
+
+   KEY_SKILLS is the spec band on the home page: three domains, three
+   or four terms each. It reads as columns, so keep the groups to three
+   — a fourth column squeezes every term onto two lines. SKILLS below
+   is the full grouped list, kept if a Skills page ever returns. */
+
+export const KEY_SKILLS = [
+  {
+    group: "Mathematics",
+    items: ["Number Theory", "Diophantine Equations", "Galois Theory", "Quaternion Arithmetic"]
+  },
+  {
+    group: "Cryptography",
+    items: ["Post-Quantum Cryptography", "Cryptosystem Design", "Signing & Verification"]
+  },
+  {
+    group: "Applied",
+    items: ["Valuation Modelling", "Academic Writing", "Team Leadership"]
+  }
+];
 
 export const SKILLS = [
   {
@@ -588,14 +702,15 @@ export const SKILLS = [
   }
 ];
 
+/* ---- Footer ---- */
+
 export const FOOTER_NAV = [
   { label: "Home", to: "/" },
-  { label: "Research", to: "/work" },
-  { label: "Projects", to: "/projects" },
+  { label: "Research", to: "/work?tab=research" },
+  { label: "Projects", to: "/work?tab=projects" },
   { label: "Publications", to: "/publications" },
   { label: "Achievements", to: "/awards" },
-  { label: "Leadership", to: "/volunteering" },
-  { label: "Skills", to: "/skills" },
+  { label: "Leadership", to: "/work?tab=leadership" },
   { label: "About", to: "/about" }
 ];
 
