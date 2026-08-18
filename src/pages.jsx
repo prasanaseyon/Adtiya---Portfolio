@@ -596,9 +596,9 @@ export function Volunteering() {
   return (
     <Page>
       <PageHead
-        eyebrow="Leadership"
+        eyebrow=""
         title=""
-        lead="Opening advanced STEM research to students who would not otherwise reach it."
+        lead=""
       />
 
       <div className="stat-grid">
