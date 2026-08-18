@@ -597,7 +597,7 @@ export function Volunteering() {
     <Page>
       <PageHead
         eyebrow="Leadership"
-        title="Community & teaching"
+        title=""
         lead="Opening advanced STEM research to students who would not otherwise reach it."
       />
 
