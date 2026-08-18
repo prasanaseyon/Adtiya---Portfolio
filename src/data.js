@@ -101,12 +101,7 @@ export const EXPERIENCE_TABS = [
     note: "Built to be used",
     lead: "Hardware, software and models that left the notebook."
   },
-  {
-    id: "leadership",
-    label: "Leadership & Initiatives",
-    note: "Teaching & outreach",
-    lead: "Opening advanced STEM research to students who would not otherwise reach it."
-  }
+
 ];
 
 /* ---- Research & professional experience ---- */
