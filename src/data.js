@@ -42,12 +42,11 @@ export const NAV = [
       { label: "Fellowships & Programmes", to: "/work?tab=fellowships" },
       { label: "Applied & Industry", to: "/work?tab=applied" },
       { label: "Projects", to: "/work?tab=projects" },
-      { label: "Leadership & Initiatives", to: "/work?tab=leadership" },
       { label: "Publications", to: "/publications" }
     ]
   },
   { label: "Achievements", to: "/awards" },
-  { label: "Leadership & Community", to: "/volunteering" }
+  { label: "My Venture", to: "/volunteering" }
 ];
 
 /* ---- Education ---- */
