@@ -393,30 +393,7 @@ export const VOLUNTEER = {
         "Promoted from core volunteer to Social Media & Fundraising Intern. Raised $2,500 USD through targeted digital marketing campaigns and ran 3 on-the-ground food drives for vulnerable communities, alongside posters, stickers, reels, ads and fundraising campaigns on social media.",
       link: ""
     },
-    {
-      slug: "breathnext-team",
-      category: null,
-      name: "BreathNext",
-      role: "Team Lead",
-      dates: "Oct 2025 – Present",
-      badge: "",
-      tags: [],
-      desc:
-        "Leads a 4-member school team building a portable passive bio-panel and AI-powered respiratory care app, currently in data collection and research in collaboration with ASHA community members. Won the GIIS Young Scientist Challenge.",
-      link: ""
-    },
-    {
-      slug: "solar-smart-team",
-      category: null,
-      name: "SOLAR-SMART",
-      role: "Project Lead",
-      dates: "Aug 2023 – Present",
-      badge: "",
-      tags: [],
-      desc:
-        "Leads a team of 6 students building a low-cost smart solar add-on, and facilitated the transition to renewable energy for 30+ households through community awareness initiatives, installation support, and direct assistance with subsidy navigation.",
-      link: ""
-    }
+    
   ]
 };
 
