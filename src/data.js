@@ -35,6 +35,7 @@ export const PROFILE = {
 export const NAV = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "My Venture", to: "/volunteering" },
   {
     label: "Experience",
     children: [
@@ -46,7 +47,7 @@ export const NAV = [
     ]
   },
   { label: "Achievements", to: "/awards" },
-  { label: "My Venture", to: "/volunteering" }
+
 ];
 
 /* ---- Education ---- */
