@@ -13,8 +13,8 @@ export const PROFILE = {
   fullName: "Aditya Patil",
   tagline: "Founder, Xponentia | Number Theory & Cryptography Researcher",
   location: "Bangalore, Karnataka, India",
-  email: "arp876726@gmail.com",
-  phone: "+91 74986 51812",
+  email: "",
+  phone: "",
   bio: [
     "I'm a Grade 11 student at Global Indian International School, Whitefield, Bangalore, where I study Physics, Chemistry, Mathematics, English and Computer Science as a Global Citizen Scholar on a full-ride scholarship. My work sits in pure mathematics — number theory, Diophantine analysis, and cryptography — and in the systems that let those ideas reach people who would not otherwise see them.",
     "My research has been mentored by Prof. Ila Varma at the University of Toronto and Prof. Ramesh Shreekantan at the Indian Statistical Institute, Bangalore. I've proved the non-existence of integer solutions to an unsolved cubic–quartic Diophantine equation, proposed a framework for a post-quantum cryptosystem, and introduced a Norm Interval Theorem in ongoing work on the additive properties of pure Hurwitz quaternions. I spent six weeks at PROMYS India (IISc Bangalore) as a Mehta Fellow and returned as an alumnus to lecture.",
