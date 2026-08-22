@@ -12,7 +12,7 @@ export const PROFILE = {
   last: "Patil",
   fullName: "Aditya Patil",
   tagline: "Founder, Xponentia | Number Theory & Cryptography Researcher",
-  location: "Bangalore, Karnataka, India",
+  location: "India",
   email: "",
   phone: "",
   bio: [
